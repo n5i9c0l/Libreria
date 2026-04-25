@@ -8,3 +8,5 @@ class Voz:
         tts.write_to_fp(audio)
         audio.seek(0)
         return audio
+    
+    
