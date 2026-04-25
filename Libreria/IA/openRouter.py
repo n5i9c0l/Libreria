@@ -1,9 +1,13 @@
 from openai import OpenAI
+from dotenv import load_dotenv as load
+import os
 
 class OpenRouter:
     def __init__(self):
+        load()
+        openrouter_key = os.getenv("OPENROUTER_API_KEY")
         self.modelo  ="openrouter/free"
-        self.cliente = OpenAI(api_key="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", base_url="https://openrouter.ai/api/v1")
+        self.cliente = OpenAI(api_key=openrouter_key, base_url="https://openrouter.ai/api/v1")
 
     def generar(self, prompt):
         respuesta = self.cliente.chat.completions.create(

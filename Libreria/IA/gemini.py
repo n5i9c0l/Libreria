@@ -1,8 +1,12 @@
 from google import genai
+from dotenv import load_dotenv as load
+import os
 
 class Ia:
     def __init__(self):
-        self.client = genai.Client(api_key="AIzaSyBZPr1tMMvOabaZBXo2T-kD7A7Ul2NiKJI")
+        load()
+        gemini_key = os.getenv("GEMINI_API_KEY")
+        self.client = genai.Client(api_key=gemini_key)
 
     def generar(self, prompt):
         respuesta = self.client.models.generate_content(
