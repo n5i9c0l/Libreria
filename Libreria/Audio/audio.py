@@ -10,13 +10,13 @@ class Audio:
             audio = self.reconocedor.listen(source)
         try:
             text = self.reconocedor.recognize_google(audio)
-            print("Ud. dijo: " + text)
+            print("Dijiste: "+text)
             return text
         except sr.UnknownValueError:
             print("No puedo entender el audio.")
             return None
         except sr.RequestError as e:
-            print("Error en los resultados; {0}".format(e))
+            print("Error en los resultados")
             return None
     def hablar(self, texto):
         self.motor.setProperty('rate', 150)
