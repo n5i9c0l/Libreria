@@ -21,6 +21,8 @@ else:#si es que puso otra cosa >:v, tal vez es ciego y por eso puso alguna wbda,
         pregunta=input("¿Qué quieres preguntarle a la IA?")
         respuesta=ia.generar(pregunta)
         print("IA respondió: "+respuesta)
+        #audiouwu.hablar(respuesta)  <---- Esto no se si ponerlo o no, puede ser ciego, pero puso la opcion de teclado...
+        #no se, vos eres la jefa 
     elif texto and "microfono" in texto.lower():#si dijo micro
         texto=audiouwu.escuchar()
         if texto:
