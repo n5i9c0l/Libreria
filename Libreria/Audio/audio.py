@@ -19,6 +19,6 @@ class Audio:
             print("Error en los resultados")
             return None
     def hablar(self, texto):
-        self.motor.setProperty('rate', 150)
+        self.motor.setProperty('rate', 167)#sixeseven referencia
         self.motor.say(texto)
         self.motor.runAndWait()
