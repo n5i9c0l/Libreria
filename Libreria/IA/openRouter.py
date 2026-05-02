@@ -3,6 +3,7 @@ from dotenv import load_dotenv as load
 import os
 
 class OpenRouter:
+    
     def __init__(self):
         load()
         openrouter_key = os.getenv("OPENROUTER_API_KEY")

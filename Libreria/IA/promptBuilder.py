@@ -1,4 +1,5 @@
 class PromptBuilder:
+    
     DEFAULTS = {
         "idioma": "español",
         "contexto": "sin contexto adicional",

@@ -5,6 +5,7 @@ from openRouter import OpenRouter
 
 
 class Ia:
+    
     def __init__(self):
         self.gemini = Gemini()
         self.openrouter = OpenRouter()

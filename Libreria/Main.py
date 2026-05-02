@@ -3,15 +3,20 @@ from Gramatica.lexer import Tokenizador
 from Gramatica.parser import Parser
 from IA.ia import Ia
 from Audio.tts import Voz
+from Audio.stt import Audio
+from Audio.normalizar import Normalizador
 
 class Libreria:
+
     def __init__(self):
         self.tokenizador = Tokenizador()
         self.parser = Parser([])
         self.promptBuilder = PromptBuilder()
         self.ia = Ia()
         self.audio = Voz()
-
+        self.listener = Audio()
+        self.normalizador = Normalizador()
+    
     def procesarConsulta(self, consulta):
         tokens = self.tokenizador.tokenizar(consulta)
         self.parser.tokens = tokens
@@ -25,35 +30,11 @@ class Libreria:
         else:
             return respuesta
 
-"""
-audiouwu=Audio()
-ia=OpenRouter()
-opcion=input("¿Quieres usar teclado o micrófono? ").lower()
-#imaginemos que no es ciego, entonces que lea y diga qué quiere usar(microfono o tecaldo)
-if opcion=="teclado":#si es teclado
-    texto=input("¿Qué quieres preguntarle a la IA? ")
-    respuesta=ia.generar(texto)
-    print("IA respondió: "+respuesta)
-elif opcion=="microfono":#si es micro
-    texto=audiouwu.escuchar()#que hable
-    if texto:#validamos que no sea wbdas
-        respuesta=ia.generar(texto)
-        audiouwu.hablar(respuesta)
-else:#si es que puso otra cosa >:v, tal vez es ciego y por eso puso alguna wbda, entonces que hable
-    audiouwu.hablar("No entendí, dime por micrófono si quieres teclado o micrófono")
-    print("Habla:")
-    texto=audiouwu.escuchar()
-    if texto and "teclado" in texto.lower(): #si dijo teclado
-        pregunta=input("¿Qué quieres preguntarle a la IA?")
-        respuesta=ia.generar(pregunta)
-        print("IA respondió: "+respuesta)
-        #audiouwu.hablar(respuesta)  <---- Esto no se si ponerlo o no, puede ser ciego, pero puso la opcion de teclado...
-        #no se, vos eres la jefa 
-    elif texto and "microfono" in texto.lower():#si dijo micro
-        texto=audiouwu.escuchar()
-        if texto:
-            respuesta=ia.generar(texto)
-            audiouwu.hablar(respuesta)
-    else:#sino tampoco dijo algo válido :c
-        print("No se pudo entender :c")
-    """
+    def escucharConsulta(self):
+        texto_hablado = self.listener.escuchar()
+
+        if texto_hablado is None:
+            self.listener.hablar("No pude entender el audio.")
+        else:
+            consulta = self.normalizador.normalizar(texto_hablado)
+        return self.procesarConsulta(consulta)
