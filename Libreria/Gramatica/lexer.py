@@ -3,7 +3,7 @@ import re
 class Tokenizador:
     def __init__(self):
         self.patron = r'[a-zA-Z]+|"[^"]*"|[:(),=]'
-        self.parametros = {"tipo", "idioma", "contexto", "restricciones", "tono"}
+        self.parametros = {"tipo", "idioma", "contexto", "restricciones", "tono", "longitud"}
 
     def tokenizar(self, texto):
         texto_token = re.findall(self.patron, texto)
