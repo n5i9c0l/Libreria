@@ -1,5 +1,5 @@
 class Parser:
-    
+
     def __init__(self, tokens):
         self.tokens = tokens
         self.pos = 0
@@ -13,14 +13,14 @@ class Parser:
     
     def revisar(self, tipo):
         token = self.getActual()
-        tipoActual = token[0]
+        
         if token is None:
             raise Exception(f"Se esperaba un token de tipo {tipo} pero se encontró el final de la entrada")
         
+        tipoActual, valor = token
         if tipoActual == tipo:
             self.pos += 1
-            return token
-        
+            return valor
         else:
             raise Exception(f"Se esperaba un token de tipo {tipo} pero se encontró {tipoActual}")
         
@@ -48,7 +48,7 @@ class Parser:
         
         parametros[parametro] = valor
 
-        while self.getActual() is not None and self.getActual()[0] == "PARENTESIS_CERRADO":
+        while self.getActual() is not None and self.getActual()[0] != "PARENTESIS_CERRADO":
             self.revisar("COMA")
             parametro = self.revisar("PARAMETRO")
             self.revisar("IGUAL")

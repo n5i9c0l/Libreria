@@ -22,10 +22,10 @@ class Tokenizador:
                 tokens.append(("IGUAL", parte))
             elif parte in self.parametros:
                 tokens.append(("PARAMETRO", parte))
-            elif parte.isalpha():
-                tokens.append(("ACCION", parte))
             elif parte.startswith('"') and parte.endswith('"'):
                 tokens.append(("VALOR", parte[1:-1]))
+            elif parte.isalpha():
+                tokens.append(("ACCION", parte))
             else:
                 raise Exception(f"Palabra no permitida: {parte}")
         return tokens

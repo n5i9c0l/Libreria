@@ -3,10 +3,7 @@ import speech_recognition as sr
 class Audio:
 
     def __init__(self):
-        self.velocidad=167
         self.reconocedor = sr.Recognizer()
-        self.motor = pyttsx3.init()
-        self.motor.setProperty("rate", velocidad)
         self.idioma ="es-ES"
 
     def escuchar(self):

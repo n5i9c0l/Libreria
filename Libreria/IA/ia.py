@@ -1,5 +1,5 @@
-from gemini import Gemini
-from openRouter import OpenRouter
+from .gemini import Gemini
+from .openRouter import OpenRouter
 
 
 class Ia:
