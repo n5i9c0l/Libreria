@@ -4,7 +4,7 @@ from Gramatica.parser import Parser
 from IA.ia import Ia
 from Audio.tts import Voz
 from Audio.stt import Audio
-from Libreria.Audio.normalizador import Normalizador
+from Audio.normalizador import Normalizador
 
 class Libreria:
 
@@ -33,7 +33,7 @@ class Libreria:
         texto_hablado = self.listener.escuchar()
 
         if texto_hablado is None:
-            self.listener.hablar("No pude entender el audio.")
+            raise Exception("Audio no entendible")
         else:
             consulta = self.normalizador.normalizar(texto_hablado)
-        return self.procesarConsulta(consulta)
+            return self.procesarConsulta(consulta)
