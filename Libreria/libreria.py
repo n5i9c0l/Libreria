@@ -4,13 +4,12 @@ from Gramatica.parser import Parser
 from IA.ia import Ia
 from Audio.tts import Voz
 from Audio.stt import Audio
-from Audio.normalizar import Normalizador
+from Libreria.Audio.normalizador import Normalizador
 
 class Libreria:
 
     def __init__(self):
         self.tokenizador = Tokenizador()
-        self.parser = Parser([])
         self.promptBuilder = PromptBuilder()
         self.ia = Ia()
         self.audio = Voz()
@@ -19,8 +18,8 @@ class Libreria:
     
     def procesarConsulta(self, consulta):
         tokens = self.tokenizador.tokenizar(consulta)
-        self.parser.tokens = tokens
-        consultaParseada = self.parser.parsear()
+        parser = Parser(tokens)
+        consultaParseada = parser.parsear()
         prompt = self.promptBuilder.construir(consultaParseada)
         respuesta = self.ia.generar(prompt)
 
