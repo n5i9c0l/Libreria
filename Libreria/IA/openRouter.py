@@ -16,5 +16,3 @@ class OpenRouter:
         )
         return respuesta.choices[0].message.content
 
-ia = OpenRouter()
-print(ia.generar("¿Cuál es la capital de Francia?"))

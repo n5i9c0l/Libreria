@@ -2,7 +2,7 @@ from google import genai
 from dotenv import load_dotenv as load
 import os
 
-class Ia:
+class Gemini:
     def __init__(self):
         load()
         gemini_key = os.getenv("GEMINI_API_KEY")
@@ -15,5 +15,3 @@ class Ia:
         )
         return respuesta.text
 
-gemini = Ia()
-print(gemini.generar("¿Cuál es la capital de Francia?"))

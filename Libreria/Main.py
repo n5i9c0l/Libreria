@@ -1,5 +1,31 @@
-from Libreria.IA.openRouter import OpenRouter
-from Libreria.Audio.audio import Audio
+from IA.promptBuilder import PromptBuilder
+from Gramatica.lexer import Tokenizador
+from Gramatica.parser import Parser
+from IA.ia import Ia
+from Audio.tts import Voz
+
+class Libreria:
+    def __init__(self):
+        self.tokenizador = Tokenizador()
+        self.parser = Parser([])
+        self.promptBuilder = PromptBuilder()
+        self.ia = Ia()
+        self.audio = Voz()
+
+    def procesarConsulta(self, consulta):
+        tokens = self.tokenizador.tokenizar(consulta)
+        self.parser.tokens = tokens
+        consultaParseada = self.parser.parsear()
+        prompt = self.promptBuilder.construir(consultaParseada)
+        respuesta = self.ia.generar(prompt)
+
+        tipo = consultaParseada["parametros"]["tipo"]
+        if tipo == "audio":
+            return self.audio.volver_audio(respuesta)
+        else:
+            return respuesta
+
+"""
 audiouwu=Audio()
 ia=OpenRouter()
 opcion=input("¿Quieres usar teclado o micrófono? ").lower()
@@ -30,3 +56,4 @@ else:#si es que puso otra cosa >:v, tal vez es ciego y por eso puso alguna wbda,
             audiouwu.hablar(respuesta)
     else:#sino tampoco dijo algo válido :c
         print("No se pudo entender :c")
+    """
