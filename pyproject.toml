@@ -1,0 +1,31 @@
+[project]
+name = "libreria-ia"
+version = "0.1.0"
+description = "Librería en Python para procesar consultas mediante gramática que permite recibir una respuesta más especifica, integrando IA, voz y audio"
+authors = [
+    { name = "Leonardo Jhonny Rivas Olivera" }
+    { name = "Nicol Eid Gorena" }
+    { name = "Matias Marcelo Revollo Cornejo" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "SpeechRecognition",
+    "pyttsx3",
+    "gTTS",
+    "openai",
+    "google-genai",
+    "python-dotenv"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools.packages.find]
+where = ["."]
