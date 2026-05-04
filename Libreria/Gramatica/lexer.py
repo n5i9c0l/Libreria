@@ -6,6 +6,9 @@ class Tokenizador:
         self.parametros = {"tipo", "idioma", "contexto", "restricciones", "tono", "longitud"}
 
     def tokenizar(self, texto):
+        invalidos = re.findall(r'\b\d+\b', texto)
+        if invalidos:
+            raise Exception(f"Palabra no permitida: {invalidos[0]}")
         texto_token = re.findall(self.patron, texto)
         tokens = []
 
