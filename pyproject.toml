@@ -3,8 +3,8 @@ name = "libreria-ia"
 version = "0.1.0"
 description = "Librería en Python para procesar consultas mediante gramática que permite recibir una respuesta más especifica, integrando IA, voz y audio"
 authors = [
-    { name = "Leonardo Jhonny Rivas Olivera" }
-    { name = "Nicol Eid Gorena" }
+    { name = "Leonardo Jhonny Rivas Olivera" },
+    { name = "Nicol Eid Gorena" },
     { name = "Matias Marcelo Revollo Cornejo" }
 ]
 readme = "README.md"
