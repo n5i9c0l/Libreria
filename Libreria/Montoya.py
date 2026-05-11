@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(_file_), "..")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from Libreria.Audio.normalizador import Normalizador
 from Libreria.Gramatica.lexer import Tokenizador
 from Libreria.Gramatica.parser import Parser
@@ -57,12 +57,15 @@ def demo_pipeline(entrada: str):
     respuesta = ia.generar(prompt)
     tipo = consulta["parametros"]["tipo"]
     if tipo == "audio":
-        voz = Voz()
-        audio = voz.volver_audio(respuesta)
-        bytes_leidos = len(audio.read())
         print(f"    Tipo: AUDIO")
         print(f"    Texto generado por IA: {respuesta[:200]}{'...' if len(respuesta) > 200 else ''}")
-        print(f"    Audio generado: {bytes_leidos} bytes")
+        try:
+            voz = Voz()
+            audio = voz.volver_audio(respuesta)
+            bytes_leidos = len(audio.read())
+            print(f"    Audio generado: {bytes_leidos} bytes")
+        except Exception as e:
+            print(f"    Audio: ERROR al generar ({e})")
     else:
         print(f"    Tipo: TEXTO")
         print(f"    {respuesta[:600]}{'...' if len(respuesta) > 600 else respuesta[600:]}")
