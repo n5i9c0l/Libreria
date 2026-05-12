@@ -1,7 +1,9 @@
-# Librería de doña Likor 
+## The Pibbles
 
 Este proyecto es una biblioteca modular en Python diseñada para procesar consultas académicas mediante texto o voz. Utiliza una arquitectura de pipeline de lenguaje que incluye un tokenizador (Lexer), un analizador sintáctico (Parser) y un motor de Inteligencia Artificial (Gemini/OpenRouter) para generar respuestas personalizadas.
+
 ## Características 
+
 Entrada Dual: Soporta consultas escritas y comandos de voz (STT).
 
 Procesamiento Gramatical: Incluye un lenguaje de comandos propio para definir acciones, temas y parámetros específicos.
@@ -51,7 +53,7 @@ promptBuilder.py: Construye prompts estructurados siguiendo un rol de asistente 
 
 2 Instala las dependencias necesarias:
 ```bash
-pip install google-genai openai-python python-dotenv SpeechRecognition gTTS PyAudio
+pip install -e .
 ```
 3 Configura tus variables de entorno en un archivo .env:
 ```bash
@@ -74,7 +76,7 @@ Al hablar, el Normalizador se encarga de estructurar la frase para que el Parser
 
 ## Ejemplo de implementacion 
 ```bash
-from libreria import Libreria
+from thepibbles.thepibbles import Libreria
 
 # Inicializar la librería
 app = Libreria()

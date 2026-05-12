@@ -1,6 +1,6 @@
 import pytest
-from Libreria.Audio.normalizador import Normalizador
-from Libreria.Audio.tts import Voz
+from thepibbles.Audio.normalizador import Normalizador
+from thepibbles.Audio.tts import Voz
 
 def test_normalizador_caso_normal():
     norm = Normalizador()

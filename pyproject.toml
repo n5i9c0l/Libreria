@@ -1,5 +1,5 @@
 [project]
-name = "libreria-ia"
+name = "thepibbles"
 version = "0.1.0"
 description = "Librería en Python para procesar consultas mediante gramática que permite recibir una respuesta más especifica, integrando IA, voz y audio"
 authors = [

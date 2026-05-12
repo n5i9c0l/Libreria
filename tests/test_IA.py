@@ -1,8 +1,8 @@
 import pytest
-from Libreria.IA.promptBuilder import PromptBuilder
-from Libreria.IA.gemini import Gemini
-from Libreria.IA.openRouter import OpenRouter
-from Libreria.IA.ia import Ia
+from thepibbles.IA.promptBuilder import PromptBuilder
+from thepibbles.IA.gemini import Gemini
+from thepibbles.IA.openRouter import OpenRouter
+from thepibbles.IA.ia import Ia
 
 def test_prompt_builder_caso_normal():
     builder = PromptBuilder()

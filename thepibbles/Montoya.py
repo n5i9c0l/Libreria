@@ -1,12 +1,12 @@
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from Libreria.Audio.normalizador import Normalizador
-from Libreria.Gramatica.lexer import Tokenizador
-from Libreria.Gramatica.parser import Parser
-from Libreria.IA.promptBuilder import PromptBuilder
-from Libreria.IA.ia import Ia
-from Libreria.Audio.tts import Voz
+from thepibbles.Audio.normalizador import Normalizador
+from thepibbles.Gramatica.lexer import Tokenizador
+from thepibbles.Gramatica.parser import Parser
+from thepibbles.IA.promptBuilder import PromptBuilder
+from thepibbles.IA.ia import Ia
+from thepibbles.Audio.tts import Voz
 def reproducir_audio(audio):
     try:
         import tempfile
@@ -104,7 +104,7 @@ def demo_microfono():
     print("\nMODO MICRÓFONO - Hablá cuando estés listo")
     print("Formato al hablar: <accion> <tema> tipo <texto|audio> [idioma <idioma>]")
     print("Ejemplo: explicar la fotosintesis tipo texto idioma español\n")
-    from Libreria.Audio.stt import Audio
+    from thepibbles.Audio.stt import Audio
     listener = Audio()
     print("Escuchando...")
     texto = listener.escuchar()

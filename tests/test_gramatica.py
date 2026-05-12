@@ -1,6 +1,6 @@
 import pytest
-from Libreria.Gramatica.lexer import Tokenizador
-from Libreria.Gramatica.parser import Parser
+from thepibbles.Gramatica.lexer import Tokenizador
+from thepibbles.Gramatica.parser import Parser
 
 def test_tokenizador_tipos_correctos():
     tok = Tokenizador()
