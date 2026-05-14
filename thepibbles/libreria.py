@@ -1,10 +1,10 @@
-from IA.promptBuilder import PromptBuilder
-from Gramatica.lexer import Tokenizador
-from Gramatica.parser import Parser
-from IA.ia import Ia
-from Audio.tts import Voz
-from Audio.stt import Audio
-from Audio.normalizador import Normalizador
+from .IA.promptBuilder import PromptBuilder
+from .Gramatica.lexer import Tokenizador
+from .Gramatica.parser import Parser
+from .IA.ia import Ia
+from .Audio.tts import Voz
+from .Audio.stt import Audio
+from .Audio.normalizador import Normalizador
 
 class Libreria:
 
