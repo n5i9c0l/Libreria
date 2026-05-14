@@ -17,6 +17,7 @@ dependencies = [
     "openai",
     "google-genai",
     "python-dotenv"
+    "PyAudio"
 ]
 
 [project.optional-dependencies]
